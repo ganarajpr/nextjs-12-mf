@@ -1,9 +1,5 @@
 import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
 import babel from '@rollup/plugin-babel';
-import react from 'react';
-import reactDom from 'react-dom';
-
 
 const externals = {
     'react' : 'React',
@@ -24,13 +20,6 @@ export default [
     ],
     plugins: [
       resolve(),
-      commonjs({
-        include: 'node_modules/**',
-        namedExports: {
-          react: Object.keys(react),
-          'react-dom': Object.keys(reactDom)
-        }
-      }),
       babel({ 
         presets: ['@babel/preset-react', "@babel/preset-env"],
         babelHelpers: 'bundled' 
