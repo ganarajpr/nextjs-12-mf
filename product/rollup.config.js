@@ -31,7 +31,10 @@ export default [
           'react-dom': Object.keys(reactDom)
         }
       }),
-      babel({ presets: ['@babel/preset-react', "@babel/preset-env"] })
+      babel({ 
+        presets: ['@babel/preset-react', "@babel/preset-env"],
+        babelHelpers: 'bundled' 
+      })
     ],
   }
 ];
