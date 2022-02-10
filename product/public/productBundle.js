@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
@@ -59,13 +60,18 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
+var MyButton = styled.button.withConfig({
+  displayName: "Counter__MyButton",
+  componentId: "sc-16bdvsd-0"
+})(["color:blue;"]);
+
 var Counter = function Counter() {
   var _useState = useState(0),
       _useState2 = _slicedToArray(_useState, 2),
       count = _useState2[0],
       setCount = _useState2[1];
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "Count : ", count, " "), /*#__PURE__*/React.createElement("button", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "Count : ", count, " "), /*#__PURE__*/React.createElement(MyButton, {
     onClick: function onClick() {
       return setCount(count + 1);
     }

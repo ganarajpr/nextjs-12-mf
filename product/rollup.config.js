@@ -5,6 +5,7 @@ const externals = {
     'react' : 'React',
     'react-dom' : 'ReactDOM',
     'react-scripts' : 'ReactScripts',
+    'styled-components': 'styled'
   };
 
 export default [
@@ -22,6 +23,7 @@ export default [
       resolve(),
       babel({ 
         presets: ['@babel/preset-react', "@babel/preset-env"],
+        plugins: ['babel-plugin-styled-components'],
         babelHelpers: 'bundled' 
       })
     ],
