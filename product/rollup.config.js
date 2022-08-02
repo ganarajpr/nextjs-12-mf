@@ -1,6 +1,9 @@
 import resolve from "@rollup/plugin-node-resolve";
 import babel from '@rollup/plugin-babel';
-
+// import postcssImport from 'postcss-import';
+// import tailwindcss from 'tailwindcss';
+import postcss from 'rollup-plugin-postcss'
+import path from 'path';
 const externals = {
     'react' : 'React',
     'react-dom' : 'ReactDOM',
@@ -19,6 +22,12 @@ export default [
       },
     ],
     plugins: [
+      postcss({
+        extract: path.resolve('public/productBundle.css'),
+        sourcemap: true,
+        minimize: true,
+        config: './postcss.config.js'
+      }),
       resolve(),
       babel({ 
         presets: ['@babel/preset-react', "@babel/preset-env"],

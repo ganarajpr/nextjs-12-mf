@@ -66,6 +66,7 @@ var Counter = function Counter() {
       setCount = _useState2[1];
 
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "Count : ", count, " "), /*#__PURE__*/React.createElement("button", {
+    className: "p-1 border",
     onClick: function onClick() {
       return setCount(count + 1);
     }

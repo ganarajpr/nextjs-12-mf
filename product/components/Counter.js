@@ -5,7 +5,7 @@ const Counter = () => {
     const [count, setCount] = useState(0);
     return <>
         <div>Count : {count} </div>
-        <button onClick={() => setCount(count+1)}>Count</button>
+        <button className="p-1 border" onClick={() => setCount(count+1)}>Count</button>
     </>
 };
 
