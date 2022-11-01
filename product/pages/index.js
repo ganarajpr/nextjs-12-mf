@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Counter from '../components/Counter';
+import Todo from '../components/Todos';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <Todo/>
       < Counter/>
       </main>
 

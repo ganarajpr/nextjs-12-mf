@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import productBundle from 'http://localhost:3001/productBundle.js';
 
 export default function Home() {
@@ -16,9 +15,20 @@ export default function Home() {
         <h1>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-        <Counter/>
+        <Counter />
+        {/* <Todo></Todo> */}
       </main>
 
     </div>
   )
+}
+{
+  "AWS_ACCOUNT_ID": "471240247400",
+  "AWS_ACCOUNT_REGION": "eu-west-2",
+  "AWS_ENV_SUFFIX": "dev2",
+  "env": "dev2",
+  "SINGLESTORE_DB": "devrtap",
+  "SINGLESTORE_HOST": "ac5c2dbb6e0824fed8ac5509244728cc-f6f9688e51971a6a.elb.eu-west-1.amazonaws.com",
+  "SINGLESTORE_PW": ".<)zopA]nRy~NGc:EZkr",
+  "SINGLESTORE_USER": "analytics-store-service"
 }
