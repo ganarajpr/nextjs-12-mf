@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Counter from '../components/Counter';
 import Todo from '../components/Todos';
+import { Suspense } from 'react';
 
 export default function Home() {
   return (
@@ -13,7 +14,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <Todo/>
+        <Suspense>
+          <Todo/>
+        </Suspense>
+        
       < Counter/>
       </main>
 

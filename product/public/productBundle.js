@@ -109,87 +109,6 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-var Counter = function Counter() {
-  var _useState = useState(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      count = _useState2[0],
-      setCount = _useState2[1];
-
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "Count : ", count, " "), /*#__PURE__*/React.createElement("button", {
-    className: "p-1 border",
-    onClick: function onClick() {
-      return setCount(count + 1);
-    }
-  }, "Count"));
-};
-
-var AXIOS_TIMEOUT = 60 * 1000;
-var AGENT_CONFIG = {
-  keepAlive: true,
-  timeout: 60 * 1000
-};
-var axiosInstance = axios.create({
-  timeout: AXIOS_TIMEOUT,
-  httpsAgent: new https.Agent(AGENT_CONFIG),
-  httpAgent: new http.Agent(AGENT_CONFIG)
-});
-axiosInstance.defaults.baseURL = "https://jsonplaceholder.typicode.com";
-
-var fetchTodo = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(_ref) {
-    var queryKey, cid, _yield$axios$get, data;
-
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            queryKey = _ref.queryKey;
-            cid = queryKey[1];
-
-            if (cid) {
-              _context.next = 4;
-              break;
-            }
-
-            return _context.abrupt("return", {
-              data: {}
-            });
-
-          case 4:
-            _context.next = 6;
-            return axiosInstance.get("/todos/".concat(cid));
-
-          case 6:
-            _yield$axios$get = _context.sent;
-            data = _yield$axios$get.data;
-            return _context.abrupt("return", data);
-
-          case 9:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function fetchTodo(_x) {
-    return _ref2.apply(this, arguments);
-  };
-}();
-
-var useTodo = function useTodo(todoId) {
-  return useQuery(['todos', todoId], fetchTodo, {
-    suspense: false
-  });
-};
-
-var Todo = function Todo() {
-  var _useTodo = useTodo(1),
-      title = _useTodo.data.title;
-
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "Title : ", title, " "));
-};
-
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -928,6 +847,87 @@ try {
     Function("r", "regeneratorRuntime = r")(runtime);
   }
 }
+
+var Counter = function Counter() {
+  var _useState = useState(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      count = _useState2[0],
+      setCount = _useState2[1];
+
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "Count : ", count, " "), /*#__PURE__*/React.createElement("button", {
+    className: "p-1 border",
+    onClick: function onClick() {
+      return setCount(count + 1);
+    }
+  }, "Count"));
+};
+
+var AXIOS_TIMEOUT = 60 * 1000;
+var AGENT_CONFIG = {
+  keepAlive: true,
+  timeout: 60 * 1000
+};
+var axiosInstance = axios.create({
+  timeout: AXIOS_TIMEOUT,
+  httpsAgent: new https.Agent(AGENT_CONFIG),
+  httpAgent: new http.Agent(AGENT_CONFIG)
+});
+axiosInstance.defaults.baseURL = "https://jsonplaceholder.typicode.com";
+
+var fetchTodo = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(_ref) {
+    var queryKey, cid, _yield$axios$get, data;
+
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            queryKey = _ref.queryKey;
+            cid = queryKey[1];
+
+            if (cid) {
+              _context.next = 4;
+              break;
+            }
+
+            return _context.abrupt("return", {
+              data: {}
+            });
+
+          case 4:
+            _context.next = 6;
+            return axiosInstance.get("/todos/".concat(cid));
+
+          case 6:
+            _yield$axios$get = _context.sent;
+            data = _yield$axios$get.data;
+            return _context.abrupt("return", data);
+
+          case 9:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function fetchTodo(_x) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+
+var useTodo = function useTodo(todoId) {
+  return useQuery(['todos', todoId], fetchTodo, {
+    suspense: false
+  });
+};
+
+var Todo = function Todo() {
+  var _useTodo = useTodo(1),
+      title = _useTodo.data.title;
+
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "Title : ", title, " "));
+};
 
 var index = {
   Counter: Counter,

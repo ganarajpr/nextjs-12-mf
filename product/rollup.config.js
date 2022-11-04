@@ -1,6 +1,8 @@
 import resolve from "@rollup/plugin-node-resolve";
 import babel from '@rollup/plugin-babel';
 import postcss from 'rollup-plugin-postcss';
+import polyfill from 'rollup-plugin-polyfill';
+
 import path from 'path';
 const externals = {
     'react' : 'React',
@@ -32,7 +34,8 @@ export default [
       babel({ 
         presets: ['@babel/preset-react', "@babel/preset-env"],
         babelHelpers: 'bundled' 
-      })
+      }),
+      polyfill(["regenerator-runtime/runtime"])
     ],
   }
 ];
